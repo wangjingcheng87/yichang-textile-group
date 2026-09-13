@@ -5,7 +5,9 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: resolve(__dirname, "github-pages"),
-  base: "/yichang-textile-group/",
+  // Relative assets let the same static build run on both a GitHub project
+  // subpath and the root-level *.pages.dev hostname provided by Cloudflare.
+  base: "./",
   publicDir: resolve(__dirname, "public"),
   css: { postcss: { plugins: [tailwindcss()] } },
   resolve: { alias: { "@": resolve(__dirname) } },
